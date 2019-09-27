@@ -144,10 +144,18 @@ ___
 > ![图片alt](图片地址 ''图片title'')
 
 ### example
+```
+![图片加载失败](https://cdn-zjk.kuguanwang.com/UploadFile/2019/09/20190927/49ccd10b-005a-4db1-a62c-67fbaba69200@49666383.jpg "网络图片侵删")
+```
+
+### 效果
 ![图片加载失败](https://cdn-zjk.kuguanwang.com/UploadFile/2019/09/20190927/49ccd10b-005a-4db1-a62c-67fbaba69200@49666383.jpg "网络图片侵删")
 
 ### 超链接
 > ```[超链接名](超链接地址 "超链接title")```
 
 ### example
-[百度地址](http://www.baidu.com "百度一下")
+```[百度地址](http://www.baidu.com "百度一下")```
+
+### 效果
+```[百度地址](http://www.baidu.com "百度一下")```
