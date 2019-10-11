@@ -12,6 +12,14 @@ $ git clone <远程仓库的网址> <本地目录>
 $ git clone <远程仓库的网址> -b <分支名称> <本地目录>
 ```
 
+### git pull
+> git pull的作用是从一个仓库或者本地的分支拉取并且整合代码。
+
+```
+git pull <拉取远程服务器名> <拉取远程服务器分支名称>
+
+```
+
 ### git status
 > 查看本地仓库的状态。
 
@@ -305,3 +313,5 @@ $ git rm --cached
 [git命令大全](https://www.jianshu.com/p/93318220cdce)
 
 [git stash](https://www.cnblogs.com/zndxall/archive/2018/09/04/9586088.html)
+
+[git pull](https://www.oxysun.cn/git/git-pull-1.html)
