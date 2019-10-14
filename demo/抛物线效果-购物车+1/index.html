@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+.outside {
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    background: #f6f6f6;
+    overflow: hidden;
+}
+
+.product {
+    padding: 20px;
+    margin: 30px 0;
+}
+
+.product span {
+    float: right;
+    background: #ccc;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.shopping {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    background: blanchedalmond;
+    padding: 0 20px;
+    line-height: 30px;
+    z-index: 999;
+}
+
+.shopping__num {
+    color: #fff;
+}
+
+.ball--red {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: red;
+    position: absolute;
+    right: 54px;
+    top: 40px;
+}
+
+</style>
+<body>
+    <div class="outside">
+        <div class="product">
+            <span class="product__add">+</span>
+            <span class="product__remove">-</span>
+        </div>
+
+        <div class="shopping">
+            <div class="shopping__num">0</div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
