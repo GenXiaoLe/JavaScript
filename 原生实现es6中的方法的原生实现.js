@@ -75,6 +75,48 @@
   });
   
   console.log(newArray3);
-  
 
+  // class原生实现
+  let Person = (function() {
+    const Person = function(name) {
+      
+      if (typeof new.target === 'undefined') {
+        throw new Error('必须通过实例化调用');
+      }
+      
+      this.name = name;
+    }
+    
+    Object.defineProperty(person.pertotype, 'sayName', function() {
+      value: function() {
+        if (typeof new.target !== 'undefined') {
+          throw new Error('必须不通过实例化调用');
+        }
+        
+        console.log(this.name);
+      },
+      enumerable: false,
+      writable: true,
+      configgurable: true
+    });
+    
+    return Person;
+  })();
+
+  let XMing = new Person('XMing');
+  XMing.sayName(); // XMing
+  
+  // es6 class
+  let Person2 = class Person2 {
+    constructor(name) {
+      this.name = name;
+    }
+    
+    sayName() {
+      console.log(this.name);
+    }
+  }
+  
+  let XHong = new Person2('XHong');
+  XHong.sayName(); // XHong
 <script/>
