@@ -119,4 +119,6 @@
   
   let XHong = new Person2('XHong');
   XHong.sayName(); // XHong
+
+  // new.target只有实例方法内使用 指向实例方法
 <script/>
