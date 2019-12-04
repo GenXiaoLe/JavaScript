@@ -87,7 +87,7 @@
       this.name = name;
     }
     
-    Object.defineProperty(person.pertotype, 'sayName', function() {
+    Object.defineProperty(Person.pertotype, 'sayName', function() {
       value: function() {
         if (typeof new.target !== 'undefined') {
           throw new Error('必须不通过实例化调用');
