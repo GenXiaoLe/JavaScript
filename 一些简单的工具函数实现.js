@@ -1,4 +1,4 @@
-#### 持续更新一些工具函数实现
+#### 持续更新一些函数实现
 
 - 根据 parent_id 形成树状图
 
@@ -17,3 +17,17 @@ const data = [
 ]
 
 const newTree = tree(data);
+
+- 基础的柯里化
+
+let judge;
+const curry = fn => {
+return judge = (...args) => args.length === fn.length ? fn(...args) : (...arg) => judge(...args, ...arg);
+};
+
+const sum = (a, b, c, d, e) => a + b + c + d + e;
+const currySum = curry(sum);
+
+currySum(1)(2)(3)(4); // 10
+currySum(1, 2)(3)(4); // 10
+currySum(1)(2, 3)(4); // 10
