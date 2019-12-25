@@ -34,4 +34,14 @@
  // !的优先级比==高 先执行! 所以 ![] 为 false
  // '' == false 为 true
  
+  let a = {
+      value: 1,
+      toString() {
+          return this.value++;
+      }
+  }
+
+  console.log(a == 1 && a == 2 && a == 3);
+  // a != 2 由于 == 的隐式转换 执行toString
+ 
  ```
