@@ -163,6 +163,24 @@ $ git commit -a -m "<提交的描述信息>"
 $ git commit --amend
 ```
 
+### git rebase
+> 合并多条commit以及合并分支。
+
+```
+# 合并多条commit为一个完整commit
+$ git rebase -i [startpoint]  [endpoint]
+$ git rebase -i HEAD~3
+
+# 返回编辑模式
+$ git rebase --edit-todo
+
+# 通过rebase
+$ git rebase --continue
+
+# 合并分支
+$ git rebase <分支名>
+```
+
 ### git stash
 > 将文件放入暂存区中
 
