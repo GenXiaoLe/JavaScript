@@ -43,5 +43,13 @@
 
   console.log(a == 1 && a == 2 && a == 3);
   // a != 2 由于 == 的隐式转换 执行toString
+  
+  
+  console.log(false <= null && false >= null) // true
+  console.log(false < null || false > null || false == null) // false
+  
+  // 首先== 和 < <= 之类的并不能算同一类，因为关系运算符 和 相等运算符 并不是一个类别的
+  // 因为< >会把两边转化为数值型比较，所以第一个console为 console.log(0 <= 0 && 0 >= 0)，结果是true
+  // 第二个是console.log(0 < 0 || 0 > 0 || false == null)， 结果为false
  
  ```
