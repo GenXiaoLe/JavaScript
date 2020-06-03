@@ -114,9 +114,9 @@
       if (lockRestart) return;
       
       lockRestart = true;
-      resetTimeout && cleatTimeout(resetTimeout);
+      resetTimeout && clearTimeout(resetTimeout);
       
-      resetTimeout = setTomeout(function() {
+      resetTimeout = setTimeout(function() {
       
         createWS();
         lockRestart = false;
