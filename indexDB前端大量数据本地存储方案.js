@@ -163,3 +163,122 @@ class IndexDB {
     console.log('删除成功')
   }
 }
+
+
+// index.js
+<template>
+  <div>
+    <el-table
+      id="tables"
+      :data="showList">
+      <el-table-column label="ID" prop="id"></el-table-column>
+      <el-table-column label="名字" prop="name"></el-table-column>
+    </el-table>
+    <div ref="div">
+        <el-button @click="addData">添加数据</el-button>
+        <el-button @click="getData('Use')">获取数据</el-button>
+        <el-button @click="deleteData('Use')">删除数据</el-button>
+        <el-button @click="closeDB">删除表</el-button>
+        <el-button @click="importExcal">导出Excal</el-button>
+    </div>
+    <div class="block">
+        <el-pagination
+            @current-change="handleCurrentChange"
+            :current-page.sync="param.pageIndex"
+            :page-size="param.pageSize"
+            layout="prev, pager, next"
+            :total="total">
+        </el-pagination>
+    </div>
+  </div>
+</template>
+
+<script>
+/* eslint-disable */
+import '../../indexDB'
+
+export default {
+  data() {
+    return {
+      list: [],
+      id: 1,
+      param: {
+        pageIndex: 1,
+        pageSize: 5
+      },
+      total: 0,
+      showList: [],
+      indexDBList: []
+    }
+  },
+  mounted() {
+    // 开启indexDB
+    this.$indexDB.DBinstall()
+  },
+  methods: {
+    // 自动新增
+    addItem() {
+      const time = setInterval(() => {
+        this.addData()
+      }, 1000)
+    },
+    // 删除
+    deleteData(key = 'Use') {
+      this.$indexDB.deleteDataByKey(key)
+      this.getData()
+    },
+    // 获取
+    getData(key = 'Use') {
+      this.$indexDB.getDataByKey(key, (keys) => {
+        if (keys) {
+          keys.reverse()
+
+          // if (keys.length > 0) {
+          //   this.id = keys[0].value.id
+          // }
+          this.total = keys.length
+          this.showList = this.mockPage(keys).map(item => item.value)
+        }
+      })
+    },
+    // 新增一条
+    addData() {
+      this.id += 1
+      this.$indexDB.DBAddData(
+        {
+          data: {
+            field: 'Use',
+            value: {
+              id: this.id,
+              name: 'zhangsan' + this.id,
+              age: 18,
+              sex: '男'
+            }
+          }
+        },
+        (key) => {
+          this.getData()
+        }
+      )
+    },
+    handleCurrentChange(val) {
+        this.param.pageIndex = val
+        this.getData()
+    },
+    // 虚拟分页
+    mockPage(list = []) {
+      const start = this.param.pageSize * (this.param.pageIndex - 1)
+      
+      if (list.length < 5) {
+        return list
+      }
+
+      return list.slice(start, start + 5)
+    },
+    closeDB() {
+      this.$indexDB.closeDB()
+    }
+  },
+}
+</script>
+
