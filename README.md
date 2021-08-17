@@ -1,2 +1,2 @@
 # JavaScript
-记录JavaScript相关问题及学习
+JavaScript或者工作开发中相关问题的随手记录及学习
